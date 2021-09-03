@@ -13,6 +13,9 @@ app.init = async () => {
     let sql = '';
     let rows = [];
 
+    sql = 'SELECT * FROM `trips`';
+    [rows] = await connection.execute(sql);
+    console.log(rows);
 
 
 }
