@@ -54,7 +54,6 @@ app.init = async () => {
 
 
     // ** 5. ** _Isspausdinti, kokia yra vidutine kelioniu kaina_
-    //     pvz.: Vidutine kelioniu kaina yra 2.50 EUR / km.
     sql = 'SELECT `price`, `distance` FROM `trips`';
     [rows] = await connection.execute(sql);
     let travelPrices = 0;
