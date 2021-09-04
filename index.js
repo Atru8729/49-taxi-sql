@@ -55,17 +55,17 @@ app.init = async () => {
 
     // ** 5. ** _Isspausdinti, kokia yra vidutine kelioniu kaina_
     //     pvz.: Vidutine kelioniu kaina yra 2.50 EUR / km.
-    sql = 'SELECT `price` FROM `trips`';
+    sql = 'SELECT `price`, `distance` FROM `trips`';
     [rows] = await connection.execute(sql);
     let travelPrices = 0;
-    let travelDistances = 0;
+    travelDistances = 0;
     for (let i = 0; i < rows.length; i++) {
-        travelPrices += rows[i].price;
-        travelDistances += rows[i].distance;
+        travelPrices += +rows[i].price;
+        travelDistances += +rows[i].distance;
     }
-    console.log(rows);
+
     const travelPriceAverage = travelPrices / travelDistances;
-    console.log(`Vidutine kelioniu kaina yra ${travelPriceAverage} EUR / km.`);
+    console.log(`Vidutine kelioniu kaina yra ${travelPriceAverage.toFixed(2)} EUR / km.`);
 
 }
 
